@@ -30,10 +30,14 @@ export class GameList extends React.Component<Props> {
   gameCard(game: Game) {
     return (
       <div className="game-card__game-list" key={game.ID}>
-        <p>{game.Name}</p>
-        <img key={game.ID} src={config.gameIconURLTemplate(game.ID)}/>
-        <p>Addons {game.SupportsAddons ? 'Supported' : 'Not Supported'}</p>
-        <p>Voice {game.SupportsVoice ? 'Supported' : 'Not Supported'}</p>
+        <div>
+          <img key={game.ID} src={config.gameIconURLTemplate(game.ID)}/>
+          <div>
+            <h2>{game.Name}</h2>
+            <p>Addons {game.SupportsAddons ? 'Supported' : 'Not Supported'}</p>
+            <p>Voice {game.SupportsVoice ? 'Supported' : 'Not Supported'}</p>
+          </div>
+        </div>
       </div>
     );
   }
@@ -45,13 +49,8 @@ export class GameList extends React.Component<Props> {
         <figure>
           <img src={logo} />
         </figure>
-        <h1>Twitch React Test</h1>
-        <p>This is the GameList component, located in <code>~/source/components/games/game-list.tsx</code></p>
-        <p>Start your implementation here.</p>
 
-        <div>
-          {this.props.gamesState.games.map(game => this.gameCard(game))}
-        </div>
+        {this.props.gamesState.games.map(game => this.gameCard(game))}
       </div>
     );
   }

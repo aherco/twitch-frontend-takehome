@@ -21,7 +21,6 @@ export function gamesReducer(state: GamesState = initialState, action: Actions) 
     case FETCH_GAMES_SUCCEEDED:
       // Handle action
       return action.payload;
-      break;
   }
 
   return state;
