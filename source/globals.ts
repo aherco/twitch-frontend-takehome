@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, compose, createStore, Store } from 'r
 import thunk from 'redux-thunk';
 import { Config } from './models/Config';
 import { gamesReducer } from './reducers/games';
+import { loadingReducer } from './reducers/loading';
 import { GlobalState } from './state/global';
 
 declare const window: Window & {
@@ -23,6 +24,7 @@ export function initGlobals() {
   store = createStore<GlobalState>(
     combineReducers<GlobalState>({
       games: gamesReducer,
+      loading: loadingReducer,
     }),
     composeEnhancers(applyMiddleware(thunk)),
   );

@@ -9,6 +9,7 @@ function mapStateToProps(_state: GlobalState, _props: PublicProps): ReduxStatePr
   return {
     // map props
     gamesState: _state.games,
+    loading: _state.loading,
   };
 }
 function mapDispatchToProps(dispatch: Dispatch<any>): ReduxDispatchProps {

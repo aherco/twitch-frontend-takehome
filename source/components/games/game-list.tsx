@@ -11,6 +11,7 @@ export interface PublicProps {
 export interface ReduxStateProps {
   // Define any props mapped from redux state here.
   gamesState: GamesState,
+  loading: number,
 }
 
 export interface ReduxDispatchProps {
@@ -27,12 +28,13 @@ export class GameList extends React.Component<Props> {
   }
 
   public render() {
-    console.log(this.props.gamesState);
+    console.log(this.props.loading);
     return (
       <div className="game-list__root">
         <figure>
-          <img src={logo} />
+          <img src={logo}/>
         </figure>
+        {this.props.loading > 0 ? <img id="coggers__game-list" src="/static/images/coggers.gif"/> : null}
         {this.props.gamesState.games.map(game => <GameCard key={game.ID} game={game}/>)}
       </div>
     );
