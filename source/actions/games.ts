@@ -2,6 +2,7 @@ import { Dispatch } from 'redux';
 import { GlobalStateGetter } from 'ventura/state/global';
 import { config } from 'ventura/globals';
 import { GamesState } from 'ventura/state/games';
+import { Game } from 'ventura/models/game';
 
 // Fetch Games Started
 export const FETCH_GAMES_STARTED = 'FETCH_GAMES_STARTED';
@@ -55,7 +56,7 @@ export function fetchGames() {
       )
 
       .then(
-        (body) => dispatch(fetchGamesSucceeded(body.data)),
+        (body) => dispatch(fetchGamesSucceeded({ games: body.data.sort((a: Game, b: Game) => a.Order - b.Order) })),
         (error) => dispatch(fetchGamesFailed(error)),
       );
   };

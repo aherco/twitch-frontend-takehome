@@ -8,7 +8,7 @@ import { fetchGames } from '../../actions/games';
 function mapStateToProps(_state: GlobalState, _props: PublicProps): ReduxStateProps {
   return {
     // map props
-    games: _state.games,
+    gamesState: _state.games,
   };
 }
 function mapDispatchToProps(dispatch: Dispatch<any>): ReduxDispatchProps {
