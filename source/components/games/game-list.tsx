@@ -1,9 +1,8 @@
 import * as React from 'react';
 import logo from './logo.svg';
-import '../../assets/images/1.png';
 import { GamesState } from 'ventura/state/games';
-import { config } from 'ventura/globals';
-import { Game } from 'ventura/models/game';
+import GameCard from '../game-card/game-card';
+
 
 export interface PublicProps {
   // Define any props taken by List itself.
@@ -27,21 +26,6 @@ export class GameList extends React.Component<Props> {
     this.props.fetchGames();
   }
 
-  gameCard(game: Game) {
-    return (
-      <div className="game-card__game-list" key={game.ID}>
-        <div>
-          <img key={game.ID} src={config.gameIconURLTemplate(game.ID)}/>
-          <div>
-            <h2>{game.Name}</h2>
-            <p>Addons {game.SupportsAddons ? 'Supported' : 'Not Supported'}</p>
-            <p>Voice {game.SupportsVoice ? 'Supported' : 'Not Supported'}</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   public render() {
     console.log(this.props.gamesState);
     return (
@@ -49,8 +33,7 @@ export class GameList extends React.Component<Props> {
         <figure>
           <img src={logo} />
         </figure>
-
-        {this.props.gamesState.games.map(game => this.gameCard(game))}
+        {this.props.gamesState.games.map(game => <GameCard key={game.ID} game={game}/>)}
       </div>
     );
   }

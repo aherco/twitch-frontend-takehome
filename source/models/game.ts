@@ -1,3 +1,6 @@
+import { GameFile } from 'ventura/models/game-file';
+import { CategorySection } from 'ventura/models/category-section';
+
 export interface Game {
     ID: number;
     Name: string;
@@ -5,5 +8,7 @@ export interface Game {
     SupportsVoice: boolean;
     Order: number;
     Slug: string;
-    CategorySections: string;
+    GameFiles: GameFile[];
+    CategorySections: CategorySection[];
 }
+

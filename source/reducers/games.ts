@@ -13,13 +13,12 @@ const initialState: GamesState = {
 export function gamesReducer(state: GamesState = initialState, action: Actions) {
   switch (action.type) {
     case FETCH_GAMES_STARTED:
-      // Handle action
-      break;
+      return initialState;
+
     case FETCH_GAMES_FAILED:
-      // Handle action
       break;
+      
     case FETCH_GAMES_SUCCEEDED:
-      // Handle action
       return action.payload;
   }
 

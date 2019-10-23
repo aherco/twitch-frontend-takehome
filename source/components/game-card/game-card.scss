@@ -1,0 +1,70 @@
+.game-card__game-list {
+  text-align: left;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px auto;
+  max-width: 600px;
+  background-color: white;
+  
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  
+  p {
+    margin: 0;
+  }
+   
+  h2 {
+    margin: 0;
+  }
+    
+  > div > * {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+  > img {
+    width: 100%;
+    max-width: 100px;
+  }
+}
+
+.game-card__game-list:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+  
+.game-list__root > .game-card__game-list:active {
+  filter: brightness(80%);
+}
+
+.game-info__game-card {
+
+  > div {
+    display: block;
+    margin-top: 16px;
+    border-top: 1px solid lightgray;
+    padding-top: 16px;
+
+    > * {
+      display: inline-block;
+      vertical-align: top;
+      margin: 0;
+    }
+
+    p {
+      margin-left: 25px;
+    }
+  }
+
+  /* Needed to nudge the second list by a pixel for perfect alignment */
+  div:last-child {
+    ul:last-child {
+      margin-left: 1px;
+      margin-bottom: 8px;
+    }
+  }
+}
