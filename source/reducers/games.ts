@@ -20,6 +20,7 @@ export function gamesReducer(state: GamesState = initialState, action: Actions) 
       break;
     case FETCH_GAMES_SUCCEEDED:
       // Handle action
+      return action.payload;
       break;
   }
 
