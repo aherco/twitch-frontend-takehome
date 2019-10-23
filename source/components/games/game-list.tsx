@@ -29,7 +29,7 @@ export class GameList extends React.Component<Props> {
 
   gameCard(game: Game) {
     return (
-      <div key={game.ID}>
+      <div className="game-card__game-list" key={game.ID}>
         <p>{game.Name}</p>
         <img key={game.ID} src={config.gameIconURLTemplate(game.ID)}/>
         <p>Addons {game.SupportsAddons ? 'Supported' : 'Not Supported'}</p>
@@ -49,7 +49,9 @@ export class GameList extends React.Component<Props> {
         <p>This is the GameList component, located in <code>~/source/components/games/game-list.tsx</code></p>
         <p>Start your implementation here.</p>
 
-        {this.props.gamesState.games.map(game => this.gameCard(game))}
+        <div>
+          {this.props.gamesState.games.map(game => this.gameCard(game))}
+        </div>
       </div>
     );
   }
