@@ -56,6 +56,7 @@ export class GameList extends React.Component<Props, State> {
   // BONUS: search functionality
   searchFilter(game: Game) {
     // strip input and names of vowels and special characters to compare for similarity rather than exact matches
+    // trade off between being more accurate with misspellings and abbreviations and less accurate with exact matches
     const name = game.Name.replace(/[aeiou:-\s]/gi, '').toLowerCase();
     const slug = game.Slug.replace(/[aeiou:-\s]/gi, '').toLowerCase();
     const input = this.state.input.replace(/[aeiou:-\s]/gi, '').toLowerCase()
@@ -80,7 +81,7 @@ export class GameList extends React.Component<Props, State> {
           this.props.gamesState.games
             .filter(this.searchFilter)
             .map(game => <GameCard key={game.ID} game={game}/>)
-          }
+        }
       </div>
     );
   }
