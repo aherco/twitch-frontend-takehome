@@ -10,7 +10,7 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(css|sass|scss)$": "identity-obj-proxy",
-      "\\.(png|svg)$": "<rootDir>/src/__tests__/utils/file-importer.ts",
+      "\\.(png|svg)$": "<rootDir>/source/__tests__/utils/file-importer.ts",
       "^ventura/(.*)": "<rootDir>/source/$1",
       "^ventura$": "<rootDir>/source/"
     },
@@ -26,12 +26,15 @@
       "ts",
       "tsx",
       "js"
-    ]
+    ],
+    "resolver": null
   },
   "author": "",
   "license": "ISC",
   "private": true,
   "dependencies": {
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-redux": "5.0.6",

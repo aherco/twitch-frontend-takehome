@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { config } from 'ventura/globals';
 import { Game } from 'ventura/models/game';
-import './game-card.scss';
 import { GameFile } from 'ventura/models/game-file';
 import { CategorySection } from 'ventura/models/category-section';
+import './game-card.scss';
 
 export interface PublicProps {
     game: Game;
 }
 
-export interface PublicState {
+export interface State {
     gameInfoVisible: boolean;
 }
 
 type Props = PublicProps
-type State = PublicState
 
 export default class GameCard extends React.Component<Props, State> {
 
