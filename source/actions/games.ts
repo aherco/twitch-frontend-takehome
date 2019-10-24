@@ -35,6 +35,8 @@ export type FetchGamesFailed = {
   error: Error;
 };
 
+// pass in error for future hypothetical implementation of displaying 
+// an error message somewhere other than an alert (not by me lol)
 function fetchGamesFailed(error: Error): FetchGamesFailed {
     return { 
       type: FETCH_GAMES_FAILED,
@@ -46,18 +48,22 @@ function fetchGamesFailed(error: Error): FetchGamesFailed {
 export function fetchGames() {
   return (dispatch: Dispatch<any>, _getState: GlobalStateGetter) => {
     dispatch(fetchGamesStarted());
-
-    // Implement remainder of thunk
     return fetch(config.gamesDataURL)
     
       .then(
         (response) => response.json(),
-        (error) => dispatch(fetchGamesFailed(error)),
+        (error) => { 
+          alert(`Failed to load games:\n${error}`);
+          dispatch(fetchGamesFailed(error)) 
+        },
       )
 
       .then(
         (body) => dispatch(fetchGamesSucceeded({ games: body.data.sort((a: Game, b: Game) => a.Order - b.Order) })),
-        (error) => dispatch(fetchGamesFailed(error)),
+        (error) => { 
+          alert(`Failed to load games:\n${error}`);
+          dispatch(fetchGamesFailed(error))
+        },
       );
   };
 }
