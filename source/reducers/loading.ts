@@ -5,6 +5,8 @@ import {
   
   type Actions = FetchGamesStarted | FetchGamesSucceeded | FetchGamesFailed;
   
+  // use a number value rather than a boolean in the case that other future modules
+  // interact with the loading state
   export function loadingReducer(state: number = 0, action: Actions) {
     switch (action.type) {
       case FETCH_GAMES_STARTED:

@@ -59,7 +59,7 @@ export function fetchGames() {
       )
 
       .then(
-        (body) => dispatch(fetchGamesSucceeded({ games: body.data.sort((a: Game, b: Game) => a.Order - b.Order) })),
+        (body) => dispatch(fetchGamesSucceeded({ games: body.data.sort((a: Game, b: Game) => a.Order - b.Order) })), // order by the Order value
         (error) => { 
           alert(`Failed to load games:\n${error}`);
           dispatch(fetchGamesFailed(error))

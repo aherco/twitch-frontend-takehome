@@ -16,6 +16,8 @@ export function gamesReducer(state: GamesState = initialState, action: Actions) 
       return state;
 
     case FETCH_GAMES_FAILED:
+      // clear the state rather than leaving it, in the case that the developers
+      // intend on making the data unavailable
       return initialState;
       
     case FETCH_GAMES_SUCCEEDED:
